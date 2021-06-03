@@ -38,15 +38,15 @@ def main():
     robot.activate_motors()
     robot.enable_sensor(Data.ULTRASONIC, True)
     
-    #for n in range(4):
-        
-        #.setup_wait(WaitType.DISTANCE, 10*1000)
-        #robot.move(MotorDirection.FORWARD, MotorDirection.FORWARD, 1, 1, True)
-        #robot.setup_wait(WaitType.ROTATION, 90*1000)
-        #robot.move(MotorDirection.FORWARD, MotorDirection.BACKWARD, 0.3, 0.3, True)
-        
-    
     robot.play_song(Song.EyeOfTheTiger, False)
+    
+    for n in range(4):
+        
+        robot.setup_wait(WaitType.DISTANCE, 10*1000)
+        robot.move(MotorDirection.FORWARD, MotorDirection.FORWARD, 1, 1, True)
+        robot.setup_wait(WaitType.ROTATION, 90*1000)
+        robot.move(MotorDirection.FORWARD, MotorDirection.BACKWARD, 0.3, 0.3, True)
+        
     
     for n in range(8):
         robot.set_light(n,255,255,0)
@@ -60,7 +60,6 @@ def main():
         robot.sync_lights()
         LocoRobo.wait(1)
         
-    robot.play_song(Song.EyeOfTheTiger, False)
     
     for n in range(8):
         robot.set_light(n,255,255,255)
